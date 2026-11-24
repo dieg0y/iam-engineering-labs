@@ -1,10 +1,10 @@
 # IAM Engineering & Identity Security Labs
 
-Hands-on Identity and Access Management (IAM) engineering portfolio covering **Workforce Identity**, **Hybrid Active Directory**, **Federation Protocols (OIDC, OAuth 2.0, SAML 2.0)**, **Automated Lifecycle Provisioning (JML & SCIM 2.0)**, **Fine-Grained Authorization (ReBAC)**, and **Non-Human Identity (NHI)** security across **Microsoft Entra ID**, **Okta**, and **Auth0**.
+Hands-on Identity and Access Management (IAM) engineering portfolio covering **Workforce Identity**, **User Lifecycle Management (Joiner–Mover–Leaver)**, **Federation Protocols (OIDC, OAuth 2.0, SAML 2.0)**, **Automated Provisioning (SCIM 2.0)**, **Fine-Grained Authorization (ReBAC)**, and **Non-Human Identity (NHI)** security across **Microsoft Entra ID**, **Okta**, and **Auth0**.
 
 Maintained by [@dieg0y](https://github.com/dieg0y).
 
-> **Status:** the full roadmap is published below — labs land module by module, and each folder gets its walkthrough, scripts, and evidence as it is completed. Skills on [my portfolio](https://dieg0y.github.io/#/skills) are only marked hands-on once a module is finished.
+> **Status:** Module 01 has landed with its full walkthrough and evidence. Modules 02–03 are published on the roadmap below — each folder gets its walkthrough, scripts, and evidence as it is completed. Skills on [my portfolio](https://dieg0y.github.io/#/skills) are only marked hands-on once a module is finished.
 
 ---
 
@@ -12,12 +12,8 @@ Maintained by [@dieg0y](https://github.com/dieg0y).
 
 ```mermaid
 flowchart LR
-    subgraph OnPrem["On-Premises Infrastructure"]
-        AD["Active Directory DS<br/>(Tiered OUs & AGDLP)"]
-    end
-
     subgraph CloudIdP["Cloud Identity Providers"]
-        ENTRA["Microsoft Entra ID<br/>(CA, PIM, Graph JML)"]
+        ENTRA["Microsoft Entra ID<br/>(JML Lifecycle, Access Reviews,<br/>CA, Break-Glass)"]
         OKTA["Okta Workforce Identity<br/>(FIDO2, OIDC, SAML, SCIM)"]
         AUTH0["Auth0 & FGA<br/>(RBAC, ReBAC, M2M NHI)"]
     end
@@ -27,8 +23,7 @@ flowchart LR
         API["REST Microservices<br/>(RS256 JWT + FGA Check)"]
     end
 
-    AD -->|"Entra Connect (PHS + Seamless SSO)"| ENTRA
-    ENTRA -->|"Conditional Access + JIT PIM"| SAAS
+    ENTRA -->|"Conditional Access + Access Governance"| SAAS
     OKTA -->|"SSO Federation & SCIM Provisioning"| SAAS
     AUTH0 -->|"PKCE / Client Credentials / ReBAC"| API
 ```
@@ -37,13 +32,16 @@ flowchart LR
 
 ## Repository Index
 
-### 01. Microsoft Entra ID & Active Directory (`01-microsoft-entra-ad/`)
+### 01. Microsoft Entra ID User Lifecycle Management (`01-entra-id-user-lifecycle-management/`)
 | Lab | Focus Area | Key Protocols & Tooling |
 | :--- | :--- | :--- |
-| [`01-active-directory-administration`](./01-microsoft-entra-ad/01-active-directory-administration) | Tier-0/Standard OU isolation, AGDLP RBAC, and bulk CSV onboarding | Active Directory DS, PowerShell, GPO Auditing |
-| [`02-hybrid-identity-entra-connect`](./01-microsoft-entra-ad/02-hybrid-identity-entra-connect) | Hybrid directory sync with OU filtering and Source Anchor validation | Entra Connect, PHS, Seamless SSO, `ms-DS-ConsistencyGuid` |
-| [`03-user-lifecycle-management-jml`](./01-microsoft-entra-ad/03-user-lifecycle-management-jml) | Automated Joiner-Mover-Leaver provisioning and session revocation | Microsoft Graph PowerShell SDK, Dynamic Groups |
-| [`04-conditional-access-pim-governance`](./01-microsoft-entra-ad/04-conditional-access-pim-governance) | Zero Trust Conditional Access policies and Just-In-Time admin elevation | Conditional Access JSON, PIM, FIDO2, Break-Glass |
+| [`01-create-user-manually`](./01-entra-id-user-lifecycle-management/01-create-user-manually) | Joiner onboarding: manual user creation and configuration | Entra Admin Center, User Provisioning |
+| [`02-create-group-and-assign-membership`](./01-entra-id-user-lifecycle-management/02-create-group-and-assign-membership) | Group-based access management and membership assignment | Security Groups, Least Privilege |
+| [`03-reset-password-disable-and-re-enable-an-account`](./01-entra-id-user-lifecycle-management/03-reset-password-disable-and-re-enable-an-account) | Help Desk identity administration: password resets and account state changes | Password Reset, Account Disable / Re-enable |
+| [`04-sign-in-logs-audit-and-monitoring`](./01-entra-id-user-lifecycle-management/04-sign-in-logs-audit-and-monitoring) | Sign-in activity auditing and security monitoring | Entra Sign-in Logs, Audit & Monitoring |
+| [`05-mover-and-leaver-promotion-and-offboarding`](./01-entra-id-user-lifecycle-management/05-mover-and-leaver-promotion-and-offboarding) | Mover promotions and Leaver offboarding with access revocation | JML, Group Membership, Offboarding |
+| [`06-access-review`](./01-entra-id-user-lifecycle-management/06-access-review) | Identity governance validation of user access | Entra ID Governance, Access Reviews |
+| [`07-break-glass-and-conditional-access`](./01-entra-id-user-lifecycle-management/07-break-glass-and-conditional-access) | Emergency administrative access and Conditional Access enforcement | Break-Glass Accounts, Conditional Access |
 
 ### 02. Okta Workforce Identity (`02-okta-workforce-identity/`)
 | Lab | Focus Area | Key Protocols & Tooling |
@@ -64,4 +62,4 @@ flowchart LR
 
 ## Security & Hygiene Standards
 * **Zero Secrets Committed:** All scripts read credentials exclusively from environment variables or secure runtime prompts.
-* **Sanitized Artifacts:** Captured XML assertions, JWT payloads, and directory identifiers in `payloads/` and `evidence/` have cryptographic signatures and tenant-specific secrets redacted.
+* **Sanitized Artifacts:** Captured screenshots, XML assertions, JWT payloads, and directory identifiers in `images/`, `payloads/`, and `evidence/` have cryptographic signatures and tenant-specific secrets redacted.
