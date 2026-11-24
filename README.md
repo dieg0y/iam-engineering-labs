@@ -51,7 +51,7 @@ flowchart LR
 | :--- | :--- | :--- |
 | [`01-adaptive-sso-phishing-resistant-mfa`](./02-okta-workforce-identity/01-adaptive-sso-phishing-resistant-mfa) | AiTM-resistant authentication policies and IP perimeter gating | WebAuthn / FIDO2, Okta Network Zones |
 | [`02-oidc-federation`](./02-okta-workforce-identity/02-oidc-federation) | Authorization Code + PKCE flow and custom Access Token claims | OIDC, OAuth 2.0 PKCE (`S256`), Custom Auth Server |
-| [`03-saml-federation`](./02-okta-workforce-identity/03-saml-federation) | SP-Initiated enterprise federation and XML assertion inspection | SAML 2.0, X.509 RSA-SHA256, SAML-tracer |
+| [`03-saml-federation`](./02-okta-workforce-identity/03-saml-federation) | SP-Initiated enterprise federation and XML assertion inspection | SAML 2.0, X.509 RSA-SHA256, PowerShell SP Simulator |
 | [`04-scim-lifecycle-provisioning`](./02-okta-workforce-identity/04-scim-lifecycle-provisioning) | Automated downstream user creation, updates, and offboarding | SCIM 2.0 (RFC 7643 / 7644), `POST /Users`, `PATCH` |
 
 ### 03. Auth0 Customer & M2M Identity (`03-auth0-customer-m2m-identity/`)

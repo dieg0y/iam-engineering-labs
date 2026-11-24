@@ -1,0 +1,31 @@
+{
+    "schemas":  [
+                    "urn:ietf:params:scim:schemas:core:2.0:User",
+                    "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
+                ],
+    "userName":  "camila.reyes@corp-iam.lab",
+    "name":  {
+                 "givenName":  "Camila",
+                 "familyName":  "Reyes"
+             },
+    "emails":  [
+                   {
+                       "primary":  true,
+                       "value":  "camila.reyes@corp-iam.lab",
+                       "type":  "work"
+                   }
+               ],
+    "title":  "Cloud Security Engineer",
+    "displayName":  "Camila Reyes",
+    "locale":  "en-US",
+    "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User":  {
+                                                                       "department":  "Engineering"
+                                                                   },
+    "externalId":  "00u1a9cg0erXBaQRq698",
+    "groups":  [
+
+               ],
+    "password":  "55tWwzpH",
+    "active":  true,
+    "id":  "scim-usr-3456"
+}

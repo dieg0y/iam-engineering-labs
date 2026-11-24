@@ -1,0 +1,49 @@
+{
+    "token_endpoint_response_summary":  {
+                                            "scope":  "email openid reports:read profile",
+                                            "expires_in":  300,
+                                            "token_type":  "Bearer"
+                                        },
+    "decoded_id_token":  {
+                             "sub":  "00u1a964yzsXokArr698",
+                             "name":  "Carlos Mendoza",
+                             "email":  "cmendoza@corp-iam.lab",
+                             "ver":  1,
+                             "iss":  "https://integrator-6023165.okta.com/oauth2/EnterprisePortalAuthServer",
+                             "aud":  "0oa1a98u39gytCccL698",
+                             "iat":  1795539351,
+                             "exp":  1795542951,
+                             "jti":  "ID.2R_YjJuzU7c257dxUgQP6zJtOto9JlY77Xo0UnDrUHI",
+                             "amr":  [
+                                         "pop"
+                                     ],
+                             "idp":  "00o1a95lvplWjqUqy698",
+                             "nonce":  "aeea3cb85c534f7495aa8f7100775ab9",
+                             "preferred_username":  "cmendoza@corp-iam.lab",
+                             "auth_time":  1795538822,
+                             "at_hash":  "IUfkpXfSMdz1qCUmdMW_yw"
+                         },
+    "decoded_access_token":  {
+                                 "ver":  1,
+                                 "jti":  "AT.K0vVlVW5FR3XYUw5aSqL_5h3KWIufXY1LH7hapY6GrI",
+                                 "iss":  "https://integrator-6023165.okta.com/oauth2/EnterprisePortalAuthServer",
+                                 "aud":  "api://enterprise-portal",
+                                 "iat":  1795539351,
+                                 "exp":  1795539651,
+                                 "cid":  "0oa1a98u39gytCccL698",
+                                 "uid":  "00u1a964yzsXokArr698",
+                                 "scp":  [
+                                             "email",
+                                             "openid",
+                                             "reports:read",
+                                             "profile"
+                                         ],
+                                 "auth_time":  1795538822,
+                                 "sub":  "cmendoza@corp-iam.lab",
+                                 "groups":  [
+                                                "Everyone",
+                                                "GG_Dept_Engineering"
+                                            ],
+                                 "department":  "Engineering"
+                             }
+}
