@@ -44,6 +44,7 @@ flowchart LR
 | [`02-hybrid-identity-entra-connect`](./01-microsoft-entra-ad/02-hybrid-identity-entra-connect) | Hybrid directory sync with OU filtering and Source Anchor validation | Entra Connect, PHS, Seamless SSO, `ms-DS-ConsistencyGuid` |
 | [`03-user-lifecycle-management-jml`](./01-microsoft-entra-ad/03-user-lifecycle-management-jml) | Automated Joiner-Mover-Leaver provisioning and session revocation | Microsoft Graph PowerShell SDK, Dynamic Groups |
 | [`04-conditional-access-pim-governance`](./01-microsoft-entra-ad/04-conditional-access-pim-governance) | Zero Trust Conditional Access policies and Just-In-Time admin elevation | Conditional Access JSON, PIM, FIDO2, Break-Glass |
+| [`05-identity-governance-protection-delegation`](./01-microsoft-entra-ad/05-identity-governance-protection-delegation) | Entitlement Management access packages, Access Reviews, and risk-based identity protection with delegated administration | Entitlement Management, Access Reviews, Identity Protection, Administrative Units |
 
 ### 02. Okta Workforce Identity (`02-okta-workforce-identity/`)
 | Lab | Focus Area | Key Protocols & Tooling |
